@@ -3,6 +3,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+  Linking,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
@@ -146,6 +147,79 @@ export default function Landing() {
           </View>
         </ScrollView>
       </View>
+      {/* ================= HOW WE WORK ================= */}
+<View style={styles.section}>
+  <Text style={styles.sectionTitle}>How We Work</Text>
+
+  <View style={styles.processCard}>
+    <Text style={styles.processStep}>1</Text>
+    <Text style={styles.processText}>Consultation & Requirement Analysis</Text>
+  </View>
+
+  <View style={styles.processCard}>
+    <Text style={styles.processStep}>2</Text>
+    <Text style={styles.processText}>Document Collection & Review</Text>
+  </View>
+
+  <View style={styles.processCard}>
+    <Text style={styles.processStep}>3</Text>
+    <Text style={styles.processText}>Filing, Compliance & Follow-ups</Text>
+  </View>
+
+  <View style={styles.processCard}>
+    <Text style={styles.processStep}>4</Text>
+    <Text style={styles.processText}>Final Confirmation & Support</Text>
+  </View>
+</View>
+{/* ================= WHO WE HELP ================= */}
+<View style={styles.sectionAlt}>
+  <Text style={styles.sectionTitle}>Who We Help</Text>
+
+  <View style={styles.helpCard}>
+    <Ionicons name="person" size={22} color="#0284c7" />
+    <Text style={styles.helpText}>Salaried Individuals</Text>
+  </View>
+
+  <View style={styles.helpCard}>
+    <Ionicons name="business" size={22} color="#0284c7" />
+    <Text style={styles.helpText}>Business Owners & Traders</Text>
+  </View>
+
+  <View style={styles.helpCard}>
+    <Ionicons name="briefcase" size={22} color="#0284c7" />
+    <Text style={styles.helpText}>Professionals & Consultants</Text>
+  </View>
+
+  <View style={styles.helpCard}>
+    <Ionicons name="home" size={22} color="#0284c7" />
+    <Text style={styles.helpText}>Startups & Small Firms</Text>
+  </View>
+</View>
+{/* ================= QUICK HELP ================= */}
+<View style={styles.quickHelp}>
+  <Text style={styles.quickHelpText}>
+    Need urgent tax help or notice reply?
+  </Text>
+
+  <TouchableOpacity
+    style={styles.quickHelpBtn}
+    onPress={() => router.push("/contact")}
+  >
+    <Text style={styles.quickHelpBtnText}>Get Expert Help</Text>
+  </TouchableOpacity>
+</View>
+{/* ================= GUARANTEE ================= */}
+<View style={styles.guarantee}>
+  <Ionicons name="shield-checkmark" size={36} color="#22c55e" />
+  <Text style={styles.guaranteeTitle}>
+    100% Legal & Compliance Guaranteed
+  </Text>
+  <Text style={styles.guaranteeText}>
+    We strictly follow Income Tax & GST regulations to ensure zero risk.
+  </Text>
+</View>
+
+
 
       {/* ================= CTA ================= */}
       <View style={styles.cta}>
@@ -163,10 +237,28 @@ export default function Landing() {
         </TouchableOpacity>
       </View>
 
-      {/* ================= FOOTER ================= */}
-      <Text style={styles.footer}>
-        © {new Date().getFullYear()} ZN Tax Consultant • Asansol
-      </Text>
+     {/* ================= FOOTER ================= */}
+<View style={styles.footerWrap}>
+  <View style={styles.footerDivider} />
+
+  <Text style={styles.footerBrand}>
+    © {new Date().getFullYear()} ZN Tax Consultant
+  </Text>
+
+  <Text style={styles.footerLocation}>
+    Asansol • Trusted Tax & Compliance Partner
+  </Text>
+
+  <TouchableOpacity
+    onPress={() =>
+      Linking.openURL("https://webwizcompany.netlify.app")
+    }
+  >
+    <Text style={styles.footerAgency}>
+      Built with ❤️ by <Text style={styles.footerAgencyBold}>WebWiz</Text>
+    </Text>
+  </TouchableOpacity>
+</View>
     </ScrollView>
   );
 }
@@ -174,6 +266,139 @@ export default function Landing() {
 /* ================= STYLES ================= */
 
 const styles = StyleSheet.create({
+  footerWrap: {
+  paddingVertical: 24,
+  alignItems: "center",
+  backgroundColor: "#f8fafc",
+},
+
+footerDivider: {
+  width: "40%",
+  height: 1,
+  backgroundColor: "#e2e8f0",
+  marginBottom: 12,
+},
+
+footerBrand: {
+  fontSize: 14,
+  fontWeight: "700",
+  color: "#0f172a",
+},
+
+footerLocation: {
+  marginTop: 4,
+  fontSize: 12,
+  color: "#64748b",
+},
+
+footerAgency: {
+  marginTop: 10,
+  fontSize: 12,
+  color: "#94a3b8",
+},
+
+footerAgencyBold: {
+  color: "#0284c7",
+  fontWeight: "700",
+},
+
+  processCard: {
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "#fff",
+  padding: 14,
+  borderRadius: 14,
+  marginBottom: 12,
+  elevation: 3,
+},
+processStep: {
+  width: 32,
+  height: 32,
+  borderRadius: 16,
+  backgroundColor: "#0284c7",
+  color: "#fff",
+  textAlign: "center",
+  lineHeight: 32,
+  fontWeight: "800",
+  marginRight: 12,
+},
+processText: {
+  fontWeight: "600",
+  color: "#334155",
+},
+
+stats: {
+  flexDirection: "row",
+  justifyContent: "space-around",
+  padding: 20,
+  backgroundColor: "#0284c7",
+},
+statItem: {
+  alignItems: "center",
+},
+statNumber: {
+  color: "#fff",
+  fontSize: 22,
+  fontWeight: "900",
+},
+statLabel: {
+  color: "#e0f2fe",
+  fontSize: 12,
+},
+
+helpCard: {
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "#fff",
+  padding: 14,
+  borderRadius: 14,
+  marginBottom: 10,
+  gap: 12,
+},
+
+helpText: {
+  fontSize: 15,
+  fontWeight: "600",
+  color: "#334155",
+},
+
+
+guarantee: {
+  padding: 30,
+  alignItems: "center",
+  backgroundColor: "#f0fdf4",
+},
+guaranteeTitle: {
+  marginTop: 10,
+  fontSize: 18,
+  fontWeight: "800",
+  color: "#166534",
+},
+guaranteeText: {
+  textAlign: "center",
+  color: "#166534",
+  marginTop: 6,
+},
+
+quickHelp: {
+  padding: 24,
+  backgroundColor: "#0f172a",
+  alignItems: "center",
+},
+quickHelpText: {
+  color: "#e5e7eb",
+  marginBottom: 10,
+},
+quickHelpBtn: {
+  backgroundColor: "#22c55e",
+  paddingVertical: 12,
+  paddingHorizontal: 30,
+  borderRadius: 20,
+},
+quickHelpBtnText: {
+  color: "#fff",
+  fontWeight: "700",
+},
   hero: {
     paddingTop: 80,
     paddingBottom: 60,

@@ -408,6 +408,7 @@ export default function AdminDashboard() {
           <Text style={{ marginBottom: 6 }}>Financial Year</Text>
           <TextInput
             placeholder="Enter Financial Year"
+            placeholderTextColor="#050505"
             style={styles.input}
             value={financialYear}
             onChangeText={setFinancialYear}
@@ -501,6 +502,7 @@ export default function AdminDashboard() {
               <TextInput
                 key={field}
                 placeholder={field.toUpperCase()}
+                placeholderTextColor="#000000"
                 style={styles.input}
                 value={(newClient as any)[field]}
                 onChangeText={(text) =>
